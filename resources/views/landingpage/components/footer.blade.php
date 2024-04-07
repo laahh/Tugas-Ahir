@@ -1,0 +1,108 @@
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <a href="/"><img alt="image" src="assets/images/bg/footer-logo.png" /></a>
+                        <p>Lorem ipsum dolor sit amet consecte tur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore.</p>
+                        <form>
+                            <div class="input-with-btn d-flex justify-content-start align-items-stretch">
+                                <input type="text" placeholder="Enter your email" />
+                                <button type="submit"><img alt="image"
+                                        src="assets/images/icons/send-icon.svg" /></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
+                    <div class="footer-item text-decoration-none">
+                        <h5>Navigation</h5>
+                        <ul class="footer-list text-decoration-none">
+                            <li><a class="text-decoration-none" href="/live-auction">All Product</a></li>
+                            <li><a class="text-decoration-none" href="/how-works">How It Works</a></li>
+                            <li><a class="text-decoration-none" href="/login">My Account</a></li>
+                            <li><a class="text-decoration-none" href="/about">About Company</a></li>
+                            <li><a class="text-decoration-none" href="/blog">Our News Feed</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
+                    <div class="footer-item text-decoration-none">
+                        <h5>Help & FAQs</h5>
+                        <ul class="footer-list">
+                            <li><a class="text-decoration-none" href="/product">Help Center</a></li>
+                            <li><a class="text-decoration-none" href="/faq">Customer FAQs</a></li>
+                            <li><a class="text-decoration-none" href="/login">Terms and Conditions</a></li>
+                            <li><a class="text-decoration-none" href="/about">Security Information</a></li>
+                            <li><a class="text-decoration-none" href="/blog">Merchant Add Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-decoration-none">
+                    <div class="footer-item">
+                        <h5>Latest Feed</h5>
+                        <ul class="recent-feed-list">
+                            <li class="single-feed">
+                                <div class="feed-img">
+                                    <a href="/blog-details"><img alt="image"
+                                            src="assets/images/blog/recent-feed1.png" /></a>
+                                </div>
+                                <div class="feed-content">
+                                    <span>January 31, 2022</span>
+                                    <h6><a class="text-decoration-none" href="/blog-details">Grant Distributions
+                                            Continue to Increase.</a></h6>
+                                </div>
+                            </li>
+                            <li class="single-feed">
+                                <div class="feed-img">
+                                    <a href="/blog-details"><img alt="image"
+                                            src="assets/images/blog/recent-feed2.png" /></a>
+                                </div>
+                                <div class="feed-content">
+                                    <span>February 21, 2022</span>
+                                    <h6><a class="text-decoration-none" href="/blog-details">Seminar for Children to
+                                            Learn About.</a></h6>
+                                </div>
+                            </li>
+                            <li class="single-feed">
+                                <div class="feed-img">
+                                    <a href="/blog-details"><img alt="image"
+                                            src="assets/images/blog/recent-feed3.png" /></a>
+                                </div>
+                                <div class="feed-content">
+                                    <span>March 22, 2022</span>
+                                    <h6><a class="text-decoration-none" href="/blog-details">Education and teacher
+                                            for all African Children.</a>
+                                    </h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row d-flex align-items-center g-4">
+                <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
+                    <p>Copyright 2022 <a href="#">Bid Out</a> | Design By <a href="https://www.egenslab.com/">Egens
+                            Lab</a></p>
+                </div>
+                <div
+                    class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
+                    <p class="d-sm-flex d-none">We Accepts:</p>
+                    <ul class="footer-logo-list">
+                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png" /></a></li>
+                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png" /></a></li>
+                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay3.png" /></a></li>
+                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png" /></a></li>
+                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
