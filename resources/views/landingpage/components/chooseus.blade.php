@@ -5,10 +5,9 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                 <div class="section-title1">
-                    <h2>Why Choose Us</h2>
-                    <p class="mb-0">Explore on the worlds best &amp; largest Bidding marketplace with our beautiful
-                        Bidding
-                        products. We want to be a part of your smile, success and future growth.</p>
+                    <h2>Kenapa Harus Memilih Kami?</h2>
+                    <p class="mb-0">Dioperasikan oleh PT Pegadaian, sebuah institusi keuangan terkemuka di
+                        Indonesia, website kami menawarkan platform lelang yang terpercaya dan aman</p>
                 </div>
             </div>
         </div>
@@ -39,8 +38,10 @@
                         </svg>
                     </div>
                     <div class="content">
-                        <h5><a class="text-decoration-none" href="#">High Quality Products</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <h5><a class="text-decoration-none" href="#">Aset Berkualitas
+                            </a></h5>
+                        <p class="para">Menawarkan beragam aset yang berkualitas, termasuk perhiasan, kendaraan, dan
+                            propert</p>
                     </div>
                 </div>
             </div>
@@ -84,8 +85,9 @@
                         </svg>
                     </div>
                     <div class="content">
-                        <h5><a class="text-decoration-none" href="#">Creator’s Royalty</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <h5><a class="text-decoration-none" href="#"> Kemudahan dan Aksesibilitas</a></h5>
+                        <p class="para">Platform kami mudah digunakan, memungkinkan Lelang Online
+                        </p>
                     </div>
                 </div>
             </div>
@@ -117,8 +119,9 @@
                         </svg>
                     </div>
                     <div class="content">
-                        <h5><a class="text-decoration-none" href="#">Top Calss Product Price</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <h5><a class="text-decoration-none" href="#">Beragam Opsi Pembayaran</a></h5>
+                        <p class="para">Menawarkan berbagai metode pembayaran yang mudah dan fleksibel, kami memudahkan
+                            Transaksi</p>
                     </div>
                 </div>
             </div>
@@ -140,8 +143,9 @@
                         </svg>
                     </div>
                     <div class="content">
-                        <h5><a class="text-decoration-none" href="#">Support Multiple Currency</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <h5><a class="text-decoration-none" href="#">Kepercayaan dan Keamanan</a></h5>
+                        <p class="para">Dioperasikan oleh PT Pegadaian , sebuah institusi keuangan terkemuka di
+                            Indonesian.</p>
                     </div>
                 </div>
             </div>
@@ -159,8 +163,9 @@
                         </svg>
                     </div>
                     <div class="content">
-                        <h5><a class="text-decoration-none" href="#">Show All Bidders History</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <h5><a class="text-decoration-none" href="#">Dukungan Pelanggan</a></h5>
+                        <p class="para">Tim dukungan pelanggan kami selalu siap membantu Anda dengan setiap pertanyaan
+                            dan Masalah </p>
                     </div>
                 </div>
             </div>
@@ -177,7 +182,10 @@
                     </div>
                     <div class="content">
                         <h5><a class="text-decoration-none" href="#">100% Happy Customer</a></h5>
-                        <p class="para">Voluptate aut blanditiis accusantium offic expedita dolorem inventore </p>
+                        <p class="para">Dengan pengalaman bertahun-tahun dalam industri lelang, kami
+                            memiliki rekam jejak yang terbukti.
+
+                        </p>
                     </div>
                 </div>
             </div>

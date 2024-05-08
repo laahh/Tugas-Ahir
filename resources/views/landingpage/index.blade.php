@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Lelang Pegadaian</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -108,7 +108,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-11">
-                    <label>What are you looking for?</label>
+                    <label>Apa Yang Anda Cari ???</label>
                     <input type="text" placeholder="Search Products, Category, Brand">
                 </div>
                 <div class="col-1 d-flex justify-content-end align-items-center">
@@ -139,7 +139,7 @@
                 <li><a class=" text-decoration-none" href="/">Home</a></li>
                 <li><a class=" text-decoration-none" href="/about">About Us</a></li>
                 <li><a class=" text-decoration-none" href="/how-works">How It Works</a></li>
-                <li><a class=" text-decoration-none" href="/product">Browse Product</a></li>
+                <li><a class=" text-decoration-none" href="/lelang">Browse Product</a></li>
                 <li><a class=" text-decoration-none" href="/blog">News</a></li>
                 <li><a class=" text-decoration-none" href="/faq">FAQ</a></li>
                 <li><a class=" text-decoration-none" href="/chatify/103">Contact</a></li>
@@ -165,17 +165,17 @@
             <div class="row d-flex justify-content-start align-items-end">
                 <div class="col-xl-7 col-lg-7 px-0">
                     <div class="banner3-content">
-                        <span class="wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.5s">Welcome To Auction
-                            House</span>
-                        <h1 class="wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="1s">Build, Sell &amp;
-                            Collect Digital items.</h1>
+                        <span class="wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.5s">Pegadaian
+                            Purwokerto</span>
+                        <h1 class="wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="1s">Portal Lelang
+                            Pegadaian</h1>
                         <p class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-                            Nulla facilisi. Maecenas ac tellus ut ligula interdum convallis. Nullam dapibus on erat in
-                            dolor posuere, none hendrerit lectus ornare. Suspendisse sit amet turpis sagittis, ultrices
-                            dui et, aliquam urna.
+                            kami menawarkan solusi pegadaian yang terpercaya dan lelang yang adil untuk berbagai jenis
+                            barang. Dengan pengalaman bertahun-tahun, kami berdedikasi untuk memberikan layanan yang
+                            transparan dan menguntungkan bagi komunitas lokal kami
                         </p>
-                        <a href="/live-auction" class="eg-btn btn--primary3 btn--lg wow fadeInUp" data-wow-duration="2s"
-                            data-wow-delay="0.8s">Start Exploring</a>
+                        <a href="/lelang" class="eg-btn btn--primary3 btn--lg wow fadeInUp" data-wow-duration="2s"
+                            data-wow-delay="0.8s">Cari Barang</a>
                     </div>
                 </div>
             </div>
@@ -540,9 +540,10 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                     <div class="section-title4">
-                        <h2>Live Auction</h2>
-                        <p class="mb-0">Explore on the worlds best &amp; largest Bidding marketplace with our beautiful
-                            Bidding products. We want to be a part of your smile, success and future growth.</p>
+                        <h2>Lelang</h2>
+                        <p class="mb-0"> Jelajahi lelang di Pegadaian Purwokerto dengan produk-produk lelang
+                            yang memukau. Bergabunglah bersama kami, di mana setiap tawaran Anda adalah bagian dari
+                            senyuman, kesuksesan, dan pertumbuhan masa depan Anda</p>
                     </div>
                 </div>
             </div>
@@ -831,9 +832,10 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                     <div class="section-title1">
-                        <h2>Trusted By 500+ Businesses.</h2>
-                        <p class="mb-0">Explore on the world's best & largest Bidding marketplace with our beautiful
-                            Bidding products. We want to be a part of your smile, success and future growth.</p>
+                        <h2>Dipercaya oleh 500++ bisnis.</h2>
+                        <p class="mb-0">Jelajahi produk terbaik dengan penawaran
+                            kami yang menarik. Kami ingin menjadi bagian dari senyum, kesuksesan, dan pertumbuhan masa
+                            depan Anda.</p>
                     </div>
                 </div>
             </div>
@@ -868,7 +870,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                     <div class="section-title4">
-                        <h2>Our Recent News</h2>
+                        <h2>Berita Terbaru Kami</h2>
                         <p class="mb-0">Explore on the worlds best & largest Bidding marketplace with our beautiful
                             Bidding products. We want to be a part of your smile, success and future growth.</p>
                     </div>

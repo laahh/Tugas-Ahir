@@ -62,8 +62,8 @@
                                 class="auction-gallery-timer d-flex align-items-center justify-content-center flex-wrap">
                                 <h3 id="countdown-timer-1">&nbsp;</h3>
                             </div>
-                            <img alt="image" src="{{ asset('assets/images/bg/prod-gallery1.png') }}"
-                                class="img-fluid" />
+                            <img alt="image" src="{{ asset('assets/images/bg/prod-gallery1.png') }}" class="w-100"
+                                width="500px" />
                         </div>
                         <div class="tab-pane big-image fade" id="gallery-img2">
                             <div class="auction-gallery-timer d-flex align-items-center justify-content-center">
@@ -83,23 +83,24 @@
                 </div>
                 <div class="col-xl-6 col-lg-5">
                     <div class="product-details-right wow fadeInDown" data-wow-duration="1.5s" data-wow-delay=".2s">
-                        <h3>Creative Fashion Riboon Digital Watch Little Elegant.</h3>
-                        <p class="para">Korem ipsum dolor amet, consectetur adipiscing elit. Maece nas in pulvinar
-                            neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla.</p>
+                        <h3>{{ $barang->nama_barang }}</h3>
+                        <p class="para">Dapatkan kesempatan untuk memiliki {{ $barang->nama_barang }}, yang kini
+                            tersedia dalam lelang eksklusif kami. </p>
                         <h4>
-                            Bidding Price: <span>$465.00</span>
+                            Bidding Price: <span>Rp {{ number_format($barang->harga_awal) }}</span>
                         </h4>
                         <div class="bid-form">
                             <div class="form-title">
                                 <h5>Bid Now</h5>
-                                <p>Bid Amount : Minimum Bid $20.00</p>
+                                <p>Bid Amount : Minimum Bid Rp 50.000</p>
                             </div>
-                            <form>
+                            <form id="bidForm" data-success="{{ old('success') }}" data-error="{{ old('error') }}"
+                                action="{{ route('lelang.bid', $barang->id) }}" method="POST">
+                                @csrf
                                 <div class="form-inner gap-2">
-                                    <input type="text" placeholder="$00.00" />
+                                    <input id="nominal_bid" name="nominal_bid" type="text" placeholder="Rp 000.00" />
+                                    <input type="hidden" id="status" name="status" value="pending" />
                                     <button class="eg-btn btn--primary btn--sm" type="submit">
-
-
                                         Place Bid
                                     </button>
                                 </div>
@@ -138,38 +139,35 @@
                         <div class="tab-pane fade show active wow fadeInUp" data-wow-duration="1.5s"
                             data-wow-delay=".2s" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <div class="describe-content">
-                                <h4>How can have anything you ant in life if you ?</h4>
+                                <h4>Deskripsi Produk</h4>
                                 <p class="para">
-                                    If you’ve been following the crypto space, you’ve likely heard of Non-Fungible
-                                    Tokens (Biddings), more popularly referred to as ‘Crypto Collectibles.’ The world of
-                                    Biddings is growing rapidly. It seems there is no slowing down of these assets as
-                                    they continue to go up in price. This growth comes with the opportunity for people
-                                    to start new businesses to create and capture value. The market is open for players
-                                    in every kind of field. Are you a collector.
+                                    {!!html_entity_decode($barang->deskripsi)!!}
                                 </p>
-                                <p class="para">But getting your own auction site up and running has always required
-                                    learning complex coding languages, or hiring an expensive design firm for thousands
-                                    of dollars and months of work.</p>
+                                <p class="para">Pastikan Anda membaca dan memahami semua syarat dan
+                                    ketentuan lelang sebelum melakukan penawaran. Penawaran bisa dimulai dari Rp.{{
+                                    number_format($barang->harga_awal) }} dan akan berlangsung hingga {{
+                                    Carbon\Carbon::parse($barang->end_date)->format('M d, Y') }}.</p>
                                 <ul class="describe-list">
                                     <li>
-                                        <a href="#" class="text-decoration-none">Amet consectetur adipisicing elit.
-                                            Maxime reprehenderit quaerat,
-                                            velit rem atque vel impedit! Expensive Design.</a>
+                                        <a href="#" class="text-decoration-none">Tanggal Mulai : {{
+                                            Carbon\Carbon::parse($barang->start_date)->format('M d, Y') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-decoration-none">Consectetur adipisicing elit. Maxime
-                                            reprehenderit quaerat</a>
+                                        <a href="#" class="text-decoration-none">Tanggal Berahir : {{
+                                            Carbon\Carbon::parse($barang->end_date)->format('M d, Y') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-decoration-none">Fuga magni veritatis ad temporibus
-                                            atque adipisci nisi rerum...</a>
+                                        <a href="#" class="text-decoration-none">Kondisi : {{ $barang->kondisi }}</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-bid" role="tabpanel" aria-labelledby="pills-bid-tab">
                             <div class="bid-list-area">
+                                <!-- Cek apakah barang lelang terbuka -->
+                                @if($barang->is_open)
                                 <ul class="bid-list">
+                                    @forelse($barang->bids as $item)
                                     <li>
                                         <div class="row d-flex align-items-center">
                                             <div class="col-7">
@@ -180,231 +178,32 @@
                                                     </div>
                                                     <div class="bidder-content">
                                                         <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
+                                                            <h6>{{ $item->user->name }}</h6>
                                                         </a>
-                                                        <p>24.50 ETH</p>
+                                                        <p>Rp {{ number_format($item->nominal_bid, 0, ',', '.') }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-5 text-end">
                                                 <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
+                                                    <p>{{ $item->created_at->diffForHumans() }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Jane Cooper</h6>
-                                                        </a>
-                                                        <p>
-
-                                                            224.5 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>5 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder3.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Guy Hawkins</h6>
-                                                        </a>
-                                                        <p>34.5 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>6 Hours 45 minutes Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder1.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row d-flex align-items-center">
-                                            <div class="col-7">
-                                                <div class="bidder-area">
-                                                    <div class="bidder-img">
-                                                        <img alt="image"
-                                                            src="{{ asset('assets/images/bg/bidder2.png') }}" />
-                                                    </div>
-                                                    <div class="bidder-content">
-                                                        <a href="#" class="text-decoration-none">
-                                                            <h6>Robart FOX</h6>
-                                                        </a>
-                                                        <p>24.50 ETH</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 text-end">
-                                                <div class="bid-time">
-                                                    <p>4 Hours Ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @empty
+                                    <p>Tidak ada penawaran.</p>
+                                    @endforelse
                                 </ul>
+                                @else
+                                <p class="m-5 text-center">History bidding tidak tersedia untuk lelang ini karena ini
+                                    adalah lelang
+                                    tertutup.
+                                </p>
+                                @endif
                             </div>
                         </div>
+
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                             aria-labelledby="pills-contact-tab">
                             <div class="row d-flex justify-content-center g-4">
@@ -422,7 +221,8 @@
                                             </div>
                                             <div class="author-area">
                                                 <div class="author-emo">
-                                                    <img alt="image" src="assets/images/icons/smile-emo.svg" />
+                                                    <img alt="image"
+                                                        src="{{ asset('assets/images/icons/smile-emo.svg') }}" />
                                                 </div>
                                                 <div class="author-name">
                                                     <span>by @robatfox</span>
@@ -471,7 +271,8 @@
                                             </div>
                                             <div class="author-area">
                                                 <div class="author-emo">
-                                                    <img alt="image" src="assets/images/icons/smile-emo.svg" />
+                                                    <img alt="image"
+                                                        src="{{ asset('assets/images/icons/smile-emo.svg') }}" />
                                                 </div>
                                                 <div class="author-name">
                                                     <span>by @robatfox</span>
@@ -535,6 +336,80 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Mencegah form dari submit otomatis
+        
+                // Menampilkan SweetAlert
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Anda tidak akan dapat mengembalikan ini!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, ajukan bid!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Pengguna mengklik "Ya", submit form
+                        form.submit();
+                        Swal.fire(
+                                'Sukses!',
+                                'Bid Anda telah berhasil disimpan.',
+                                'success'
+                            );
+                        
+
+                    }
+                });
+            });
+        });
+    </script> --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('#bidForm');
+    const successMessage = form.dataset.success;
+    const errorMessage = form.dataset.error;
+    const errorType = form.dataset.errorType;
+
+    if (successMessage) {
+        Swal.fire('Berhasil!', successMessage, 'success');
+    }
+
+    if (errorType === 'bid_too_low') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Bid harus lebih tinggi dari harga terakhir.'
+        });
+    } else if (errorMessage) {
+        Swal.fire('Gagal!', errorMessage, 'error');
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda tidak akan dapat mengembalikan ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, ajukan bid!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+});
+
+    </script>
+
+
 </body>
 
 </html>

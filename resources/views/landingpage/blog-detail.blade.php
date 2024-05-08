@@ -14,31 +14,6 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
-
-
-    {{--
-    <a rel="stylesheet" href="{{ asset('assets/css/all.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/animate.css') }}" /> --}}
-
-    {{--
-    <a rel="stylesheet" href="{{ asset('assets/css/bootstrap-icon.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/bootstrap-min.css') }}" /> --}}
-    {{--
-    <a rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}" /> --}}
-    {{--
-    <a rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/jquery.countdown.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/odometer.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/slick.css') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/style.scss') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.scss') }}" />
-    <a rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.scss') }}" /> --}}
-
-
-
 </head>
 
 

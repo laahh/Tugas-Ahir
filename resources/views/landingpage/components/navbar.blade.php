@@ -33,7 +33,7 @@
             <li><a class=" text-decoration-none" href="/">Home</a></li>
             <li><a class=" text-decoration-none" href="/about">About Us</a></li>
             <li><a class=" text-decoration-none" href="/how-works">How It Works</a></li>
-            <li><a class=" text-decoration-none" href="/product">Browse Product</a></li>
+            <li><a class=" text-decoration-none" href="/lelang">Browse Product</a></li>
             <li><a class=" text-decoration-none" href="/blog">News</a></li>
             <li><a class=" text-decoration-none" href="/faq">FAQ</a></li>
             <li><a class=" text-decoration-none" href="/chatify/103">Contact</a></li>

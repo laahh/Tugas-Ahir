@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lelang Pegadaian</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 
     @include('landingpage.components.topbar')
     @include('landingpage.components.navbar')
-    @include('landingpage.components.head', ['pageTitle' => 'About'])
+    @include('landingpage.components.head')
 
 
 
@@ -47,16 +47,16 @@
                 <div class="col-lg-6 col-md-10">
                     <div class="about-content wow fadeInDown" data-wow-duration="1.5s" data-wow-delay=".2s">
                         <span>Who we are!</span>
-                        <h2>We Work for Your Incredible Success</h2>
-                        <p class="para">Auction sites present consumers with a thrilling, competitive way to buy the
-                            goods and services they need most.</p>
-                        <p class="para">But getting your own auction site up and running has always required learning
-                            complex coding languages, or hiring an expensive design firm for thousands of dollars and
-                            months of work.</p>
+                        <h2>Platform resmi lelang online Pegadaian Cabang Purwokerto</h2>
+                        <p class="para">Situs lelang memberikan pengalaman yang mendebarkan dan kompetitif bagi konsumen
+                            untuk membeli barang dan jasa yang paling mereka butuhkan..</p>
+                        <p class="para">Kami berkomitmen untuk menyediakan solusi yang aman dan terpercaya bagi Anda
+                            untuk berpartisipasi dalam lelang aset berkualitas tinggi.</p>
                         <ul class="about-list">
-                            <li><a href="#">Have enough food for life.</a></li>
-                            <li><a href="#">Poor children can return to school.</a></li>
-                            <li><a href="#">Fuga magni veritatis ad temporibus atque adipisci nisi rerum...</a></li>
+                            <li><a class="text-decoration-none" href="#">Kemudahan Akses</a></li>
+                            <li><a class="text-decoration-none" href="#">Transparansi.</a></li>
+                            <li><a class="text-decoration-none" href="#">Keamanan</a></li>
+                            <li><a class="text-decoration-none" href="#">Dukungan Pelanggan</a></li>
                         </ul>
                         <a href="#choose-us" class="eg-btn btn--primary btn--md">More About</a>
                     </div>

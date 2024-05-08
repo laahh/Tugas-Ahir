@@ -31,14 +31,57 @@
             <select id="kategori" name="kategori"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option selected>pilih kategori</option>
-                <option value="pertahanan_nasional">Pertahanan Nasional</option>
-                <option value="teknologi_militer">Teknologi Militer</option>
-                <option value="kerjasama_internasional:">Kerjasama Internasional:</option>
-                <option value="latihan_militer">Latihan Militer</option>
+                <option value="Perhiasan & Emas">Perhiasan & Emas</option>
+                <option value="Barang Elektronik">Barang Elektronik</option>
+                <option value="Peralatan & Mesin">Peralatan & Mesin</option>
+                <option value="Kendaraan">Kendaraan</option>
+                <option value="Aksesoris">Aksesoris</option>
+                <option value="Lain Lain">Lain Lain</option>
             </select>
 
 
         </div>
+
+        <div>
+            <label for="kondisi" class="block mb-2 text-sm font-medium text-gray-900">Kondisi Barang</label>
+            <input type="text" id="kondisi" name="kondisi"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Kondisi Barang" required>
+        </div>
+
+        <div>
+
+            <label for="is_open" class="block mb-2 text-sm font-medium text-gray-900">Jenis Lelang</label>
+            <select id="is_open" name="is_open"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected>pilih Jenis Lelang</option>
+                <option value="1">Lelang Terbuka</option>
+                <option value="0">Lelang Tertutup</option>
+
+            </select>
+
+
+        </div>
+
+
+
+        <div>
+            <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900">Tanggal Mulai Lelang</label>
+            <input type="date" id="start_date" name="start_date"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Tanggal Mulai Lelang" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-gray-900" for="end_date">Tanggal Berahir Lelang </label>
+            <input type="date" id="end_date" name="end_date"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Tanggal Berahir Lelang" required>
+
+
+
+        </div>
+
 
         <div>
             <label for="harga_awal" class="block mb-2 text-sm font-medium text-gray-900">Harga Awal</label>
@@ -58,6 +101,9 @@
 
 
         </div>
+
+
+
 
 
 

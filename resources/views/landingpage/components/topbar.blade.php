@@ -15,9 +15,12 @@
         <ul class="topbar-right-list">
             <li><span>Language</span><img src="{{ asset('assets/images/icons/flag-eng.png') }}" alt="image" />
                 <ul class="topbar-sublist">
-                    <li><span>Germeny</span><img src="assets/images/icons/flag-germeny.svg" alt="image" /></li>
-                    <li> <span>French</span><img src="assets/images/icons/flag-french.svg" alt="image" /></li>
-                    <li><span>Bengali</span><img src="assets/images/icons/flag-bangla.svg" alt="image" /></li>
+                    <li><span>Germeny</span><img src="{{ asset('assets/images/icons/flag-germeny.svg') }}"
+                            alt="image" /></li>
+                    <li> <span>French</span><img src="{{ asset('assets/images/icons/flag-french.svg') }}" alt="image" />
+                    </li>
+                    <li><span>Bengali</span><img src="{{ asset('assets/images/icons/flag-bangla.svg') }}" alt="image" />
+                    </li>
                 </ul>
             </li>
             <li>Currency

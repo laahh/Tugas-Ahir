@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
+        App\Providers\MidtransServiceProvider::class,
+        // Yajra\DataTables\DataTablesServiceProvider::class,
 
 
     ],
@@ -211,5 +213,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([])->toArray(),
+
+
 
 ];

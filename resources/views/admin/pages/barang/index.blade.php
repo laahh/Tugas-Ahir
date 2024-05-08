@@ -18,22 +18,89 @@
 </a>
 
 
-<div class="container mt-5 ml-5 ">
-    <div class="row">
-        <div class="col">
-            {{ $dataTable->table(['class' => $dataTableClass]) }}
-        </div>
-    </div>
-</div>
 
-@endsection
 
-@push('scripts')
-{{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+<table id="barangTable" class="display">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nama Barang</th>
+            <th>Kategori</th>
+            <th>Tanggal Lelang</th>
+            <th>Harga Awal</th>
+            <th>Gambar</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+</table>
+
+
+
+
+
+
 <script>
-    console.log($('#baranglelang-table'));
-    $('#baranglelang-table').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#barangTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('barang-lelang') }}", // Pastikan route ini sudah terdaftar di web.php
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false }, // Kolom index
+                { data: 'nama_barang', name: 'nama_barang' }, // Nama barang
+                { data: 'kategori', name: 'kategori' }, // Kategori
+                { data: 'tanggal', name: 'tanggal' }, // Deskripsi (sudah dipotong di controller)
+                { data: 'harga_awal', name: 'harga_awal' }, // Harga awal
+               { data : 'gambar', name : 'gambar', orderable: false, searchable: false }, // Kolom gambar
+                { data: 'action', name: 'action', orderable: false, searchable: false } // Kolom aksi
+            ]
+        });     
     });
 </script>
-@endpush
+
+<script>
+    function deleteBarang(id){
+        console.log(id);
+        swal({
+            title: "Apakah Anda yakin?",
+            text: "Setelah dihapus, Anda tidak akan dapat memulihkan file imajiner ini!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            
+            if (willDelete) {
+                
+                $.ajax({
+                    url: '/barang-lelang/' + id,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(result) {
+                       
+                        swal("Sukses! Barang Lelang telah berhasil dihapus!", {
+                            icon: "success",
+                        });
+                        window.location.href = '/barang-lelang';
+                    }
+                });
+
+                
+                
+                
+            } else {
+                swal("Your imaginary file is safe!");
+            }
+        });
+    }
+    
+                            
+</script>
+
+
+
+
+
+@endsection

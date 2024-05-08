@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Login Lelang Pegadaian</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,6 +41,10 @@
 
 
 <body>
+
+    
+    
+
 
     <style>
         #mainNavbar {
@@ -107,7 +111,8 @@
                         <div class="alternate-signup-box">
                             <h6>or signup WITH</h6>
                             <div class="btn-group gap-4">
-                                <a href="#" class="eg-btn google-btn d-flex align-items-center">
+                                <a href="{{ url('/auth/redirect') }}"
+                                    class="eg-btn google-btn d-flex align-items-center">
                                     <i class="bx bxl-google"></i>
                                     <span>signup with Google</span>
                                 </a>

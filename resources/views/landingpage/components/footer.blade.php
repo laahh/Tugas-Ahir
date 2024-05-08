@@ -4,14 +4,15 @@
             <div class="row gy-5">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-item">
-                        <a href="/"><img alt="image" src="assets/images/bg/footer-logo.png" /></a>
+                        <a href="/"><img class="w-75" alt="image"
+                                src="{{ asset('assets/images/bg/pegadaian-putih.png') }}" /></a>
                         <p>Lorem ipsum dolor sit amet consecte tur adipisicing elit, sed do eiusmod tempor
                             incididunt ut labore.</p>
                         <form>
                             <div class="input-with-btn d-flex justify-content-start align-items-stretch">
                                 <input type="text" placeholder="Enter your email" />
                                 <button type="submit"><img alt="image"
-                                        src="assets/images/icons/send-icon.svg" /></button>
+                                        src="{{ asset('assets/images/icons/send-icon.svg') }}" /></button>
                             </div>
                         </form>
                     </div>
@@ -47,10 +48,10 @@
                             <li class="single-feed">
                                 <div class="feed-img">
                                     <a href="/blog-details"><img alt="image"
-                                            src="assets/images/blog/recent-feed1.png" /></a>
+                                            src="{{ asset('assets/images/blog/recent-feed1.png') }}" /></a>
                                 </div>
                                 <div class="feed-content">
-                                    <span>January 31, 2022</span>
+                                    <span>January 31, 2024</span>
                                     <h6><a class="text-decoration-none" href="/blog-details">Grant Distributions
                                             Continue to Increase.</a></h6>
                                 </div>
@@ -58,10 +59,10 @@
                             <li class="single-feed">
                                 <div class="feed-img">
                                     <a href="/blog-details"><img alt="image"
-                                            src="assets/images/blog/recent-feed2.png" /></a>
+                                            src="{{ asset('assets/images/blog/recent-feed2.png') }}" /></a>
                                 </div>
                                 <div class="feed-content">
-                                    <span>February 21, 2022</span>
+                                    <span>February 21, 2024</span>
                                     <h6><a class="text-decoration-none" href="/blog-details">Seminar for Children to
                                             Learn About.</a></h6>
                                 </div>
@@ -69,10 +70,10 @@
                             <li class="single-feed">
                                 <div class="feed-img">
                                     <a href="/blog-details"><img alt="image"
-                                            src="assets/images/blog/recent-feed3.png" /></a>
+                                            src="{{ asset('assets/images/blog/recent-feed3.png') }}" /></a>
                                 </div>
                                 <div class="feed-content">
-                                    <span>March 22, 2022</span>
+                                    <span>March 22, 2024</span>
                                     <h6><a class="text-decoration-none" href="/blog-details">Education and teacher
                                             for all African Children.</a>
                                     </h6>
@@ -86,22 +87,11 @@
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <div class="row d-flex align-items-center g-4">
-                <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center">
-                    <p>Copyright 2022 <a href="#">Bid Out</a> | Design By <a href="https://www.egenslab.com/">Egens
-                            Lab</a></p>
+            <div class=" align-items-center g-4">
+                <div class="col-lg-6 d-flex justify-content-lg-center justify-content-center">
+                    <p>Copyright 2024</p>
                 </div>
-                <div
-                    class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center flex-sm-nowrap flex-wrap">
-                    <p class="d-sm-flex d-none">We Accepts:</p>
-                    <ul class="footer-logo-list">
-                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay1.png" /></a></li>
-                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay2.png" /></a></li>
-                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay3.png" /></a></li>
-                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay4.png" /></a></li>
-                        <li><a href="#"><img alt="image" src="assets/images/bg/footer-pay5.png" /></a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>

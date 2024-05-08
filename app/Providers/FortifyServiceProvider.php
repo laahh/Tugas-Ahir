@@ -47,11 +47,19 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::loginView(function () {
-            return view('landingpage.login');
+            // title
+            $title = 'Login';
+            return view('landingpage.login', compact('title'));
         });
 
         Fortify::registerView(function () {
-            return view('landingpage.resgister');
+            // title
+            $title = 'Register';
+            return view('landingpage.resgister', compact('title'));
+        });
+
+        Fortify::verifyEmailView(function () {
+            return view('landingpage.verifikasiEmail');
         });
 
         Fortify::authenticateUsing(function (Request $request) {

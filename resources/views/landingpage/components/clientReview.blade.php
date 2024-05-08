@@ -8,7 +8,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                 <div class="section-title4">
-                    <h2>What Client Say</h2>
+                    <h2>Apa Kata Pelanggan Kami</h2>
                     <p class="mb-0">Explore on the worlds best &amp; largest Bidding marketplace with our beautiful
                         Bidding
                         products. We want to be a part of your smile, success and future growth.</p>
@@ -28,7 +28,7 @@
                         <p class="para">"Nullam cursus tempor ex. Nullam nec dui id metus consequat congue ac at
                             est. Pellentesque blandit neque at elit tristique tincidunt."</p>
                         <div class="testi-designation">
-                            <h5><a class="text-decoration-none text-black" href="/blog">Client Name</a></h5>
+                            <h5><a class="text-decoration-none text-black" href="/blog">April</a></h5>
                             <p>Client Designation</p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <p class="para">"Nullam cursus tempor ex. Nullam nec dui id metus consequat congue ac at
                             est. Pellentesque blandit neque at elit tristique tincidunt."</p>
                         <div class="testi-designation">
-                            <h5><a class="text-decoration-none text-black" href="/blog">Client Name</a></h5>
+                            <h5><a class="text-decoration-none text-black" href="/blog">April</a></h5>
                             <p>Client Designation</p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <p class="para">"Nullam cursus tempor ex. Nullam nec dui id metus consequat congue ac at
                             est. Pellentesque blandit neque at elit tristique tincidunt."</p>
                         <div class="testi-designation">
-                            <h5><a class="text-decoration-none text-black" href="/blog">Client Name</a></h5>
+                            <h5><a class="text-decoration-none text-black" href="/blog">April</a></h5>
                             <p>Client Designation</p>
                         </div>
                     </div>

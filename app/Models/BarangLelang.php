@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\bids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BarangLelang extends Model
 {
@@ -11,4 +12,9 @@ class BarangLelang extends Model
     // tabel barang
     protected $table = 'barang_lelang';
     protected $guarded = ['id'];
+
+    public function bids()
+    {
+        return $this->hasMany(bids::class, 'barang_id');
+    }
 }

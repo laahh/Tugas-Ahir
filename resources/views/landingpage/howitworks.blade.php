@@ -31,14 +31,12 @@
                     <div class="how-work-content wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
                         <span>01.</span>
                         <h3>Daftar Sekarang &amp; Mulai Lelang </h3>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                            transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he
-                            lifted his head a little he could see his brown belly, slightly domed and divided by
-                            arches
-                            into stiff sections</p>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found him self
-                            transformed in his bed into a horrible vermin.</p>
-                        <a href="/signup" class="eg-btn btn--primary btn--md">Register Account</a>
+                        <p class="para">Untuk memulai, Anda perlu mendaftar di website kami. Proses pendaftaran
+                            dirancang untuk cepat dan mudah.Registrasi akun kemudian lengakapi data diri sesuai dengan
+                            KTP, setela di ACC oleh admin anda dapat mengikuti lelang</p>
+                        <p class="para"> Langkah ini penting untuk memastikan bahwa semua peserta lelang adalah pihak
+                            yang terverifikasi, sehingga menjamin keamanan dan kepercayaan dalam setiap transaksi.</p>
+                        <a href="/signup" class="eg-btn btn--primary btn--md">Register Akun</a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 d-flex justify-content-lg-end justify-content-center">
@@ -60,13 +58,12 @@
                     <div class="how-work-content wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
                         <span>02.</span>
                         <h3>Pilih Barang Anda</h3>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                            transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he
-                            lifted his head a little he could see his brown belly, slightly domed and divided by
-                            arches
-                            into stiff sections</p>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found him self
-                            transformed in his bed into a horrible vermin.</p>
+                        <p class="para">Setelah terdaftar, Anda dapat menjelajahi berbagai aset yang tersedia untuk
+                            dilelang. Aset-aset ini dijelaskan secara detail, termasuk spesifikasi, kondisi, foto, dan
+                            informasi penting lainnya. Anda bisa menggunakan fitur pencarian dan filter yang tersedia
+                            untuk menemukan barang yang sesuai dengan kebutuhan dan preferensi Anda</p>
+                        <p class="para">Setiap barang yang ditampilkan di platform kami telah melalui proses penilaian
+                            yang ketat, memastikan bahwa hanya aset berkualitas yang ditawarkan.</p>
                         <a href="/live-auction" class="eg-btn btn--primary btn--md">Add Your Item</a>
                     </div>
                 </div>
@@ -78,13 +75,13 @@
                     <div class="how-work-content wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
                         <span>03.</span>
                         <h3>Bayar Barang Anda</h3>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found himself
-                            transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he
-                            lifted his head a little he could see his brown belly, slightly domed and divided by
-                            arches
-                            into stiff sections</p>
-                        <p class="para">One morning, when Gregor Samsa woke from troubled dreams, he found him self
-                            transformed in his bed into a horrible vermin.</p>
+                        <p class="para">Jika Anda berhasil menawar dan memenangkan lelang, langkah berikutnya adalah
+                            melakukan pembayaran. Kami menyediakan berbagai opsi pembayaran yang aman dan mudah,
+                            termasuk transfer bank, pembayaran digital, dan metode lainnya yang dapat diakses dari
+                            seluruh Indonesia. </p>
+                        <p class="para">Setelah pembayaran diverifikasi, Anda akan segera mendapatkan konfirmasi, dan
+                            aset yang Anda menangkan akan dipersiapkan untuk pengambilan atau pengiriman sesuai dengan
+                            ketentuan yang ada.</p>
                         <a href="/live-auction" class="eg-btn btn--primary btn--md">Purchase Item</a>
                     </div>
                 </div>
