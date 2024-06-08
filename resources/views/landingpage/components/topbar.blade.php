@@ -9,7 +9,8 @@
         </ul>
     </div>
     <div class="email-area">
-        <h6>Email: <a class="text-decoration-none" href="mailto:contact@example.com">contact@example.com</a></h6>
+        <h6>Email: <a class="text-decoration-none" href="mailto:contact@example.com">Kantor.area@pegadaian.co.id</a>
+        </h6>
     </div>
     <div class="topbar-right">
         <ul class="topbar-right-list">

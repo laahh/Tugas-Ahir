@@ -22,8 +22,6 @@
     @include('landingpage.components.navbar')
     @include('landingpage.components.head')
 
-
-
     <div class="about-section pt-120 pb-120">
         <img src="{{ asset('assets/images/bg/section-bg.png') }}" class="img-fluid section-bg-top" alt="section-bg" />
         <div class="container">
@@ -65,7 +63,6 @@
         </div>
     </div>
 
-
     @include('landingpage.components.chooseUs')
     @include('landingpage.components.clientReview')
     @include('landingpage.components.CounterUp')
@@ -82,15 +79,13 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.menu-close-btn').addEventListener('click', function() {
-        document.querySelector('.main-menu').classList.toggle('show-menu');
+        document.querySelector('.menu-close-btn').addEventListener('click', function() {
+            document.querySelector('.main-menu').classList.toggle('show-menu');
+        });
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            document.querySelector('.mobile-search').classList.toggle('slide');
+        });
     });
-    document.querySelector('.search-btn').addEventListener('click', function() {
-        document.querySelector('.mobile-search').classList.toggle('slide');
-    });
-});
-
-
     </script>
 
 
@@ -100,31 +95,31 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    freeMode: true,
-  });
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            freeMode: true,
+        });
     </script>
 
     <script>
         window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header-area');
-        if (window.scrollY > 50) {
-            header.classList.add('bg-white', 'navbar-light');
-            header.classList.remove('bg-transparent', 'navbar-dark');
-        } else {
-            header.classList.add('bg-transparent', 'navbar-dark');
-            header.classList.remove('bg-white', 'navbar-light');
-        }
-    });
+            const header = document.querySelector('.header-area');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white', 'navbar-light');
+                header.classList.remove('bg-transparent', 'navbar-dark');
+            } else {
+                header.classList.add('bg-transparent', 'navbar-dark');
+                header.classList.remove('bg-white', 'navbar-light');
+            }
+        });
     </script>
 </body>
 

@@ -16,12 +16,9 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('barang_lelang_id')->constrained()->onDelete('cascade');
-            $table->string('order_id')->unique();
-            $table->double('amount', 10, 2);
-            $table->string('status')->default('pending'); // Status bisa pending, success, failed, dll.
-            $table->text('payment_url')->nullable(); // URL untuk pembayaran Midtrans
-            $table->json('payment_details')->nullable(); // Detail lebih lanjut yang dikirimkan oleh Midtrans
+            $table->foreignId('barang_lelang_id')->constrained('barang_lelang')->onDelete('cascade'); // Sesuaikan dengan nama tabel yang benar
+            $table->decimal('amount', 10, 2);
+            $table->string('status');
             $table->timestamps();
         });
     }

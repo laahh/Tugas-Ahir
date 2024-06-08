@@ -382,9 +382,6 @@
         </div>
     </div>
 
-
-
-
     @include('landingpage.components.counterUp')
     @include('landingpage.components.footer')
 

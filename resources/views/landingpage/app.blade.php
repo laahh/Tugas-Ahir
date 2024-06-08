@@ -29,9 +29,9 @@
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
     <script>
         console.log($('#baranglelang-table'));
-    $('#baranglelang-table').DataTable({
-        responsive: true
-    });
+        $('#baranglelang-table').DataTable({
+            responsive: true
+        });
     </script>
 
     <script type="text/javascript">

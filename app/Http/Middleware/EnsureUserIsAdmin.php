@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EnsureUserIsVerified
+class EnsureUserIsAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,16 +15,11 @@ class EnsureUserIsVerified
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        // Memastikan pengguna telah login
-        if (!Auth::check()) {
-            return redirect('login')->with('error', 'Anda harus login untuk mengakses halaman ini.');
-        }
-
-        // Cek apakah pengguna sudah diverifikasi
-        if (!auth()->user()->is_verified) {
-            return redirect('dashboard')->with('error', 'Anda harus diverifikasi untuk mengakses halaman ini.');
+        if (!auth()->user() || !auth()->user()->is_admin) {
+            // Redirect ke halaman yang diinginkan atau tampilkan error
+            return redirect('/')->withErrors('You do not have access to this section.');
         }
 
         return $next($request);

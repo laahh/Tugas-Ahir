@@ -13,6 +13,8 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+
+
     <link rel="stylesheet" href="{{ asset('assets/css/main2.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/vendor2.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/product2.css') }}" />
@@ -20,7 +22,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/color.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/test.css') }}" />
+    {{--
+    <link rel="stylesheet" href="{{ asset('assets/css/test.css') }}" /> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
@@ -29,12 +32,18 @@
 
 </head>
 
+<style>
+
+
+</style>
+
 
 
 <body class="text-decoration-none">
     @include('landingpage.components.topbar')
     @include('landingpage.components.navbar')
     @include('landingpage.components.head', ['pageTitle' => 'About'])
+
 
     <div class="wrapper">
         <div class="main-content-wrapper">
@@ -45,29 +54,9 @@
                             <div class="shop-toolbar mb--50">
                                 <div class="row align-items-center">
                                     <div class="col-md-5 mb-sm--30 mb-xs--10">
-                                        <div class="shop-toolbar__left">
-                                            <div class="product-ordering">
-                                                <select class="product-ordering__select nice-select">
-                                                    <option value="0">Default Sorting</option>
-                                                    <option value="1">Relevance</option>
-                                                    <option value="2">Name, A to Z</option>
-                                                    <option value="3">Name, Z to A</option>
-                                                    <option value="4">Price, low to high</option>
-                                                    <option value="5">Price, high to low</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="shop-toolbar__right">
-                                            <p class="text-lg">Showing Result 08 Among 72</p>
-                                            <div class="product-view-mode ml--50 ml-xs--0">
-                                                <a class="active" href="#" data-target="grid">
-                                                    <img src="{{ asset('assets/img/icons/grid.png') }}" alt="Grid">
-                                                </a>
-                                                <a href="#" data-target="list">
-                                                    <img src="{{ asset('assets/img/icons/list.png') }}" alt="Grid">
-                                                </a>
+                                        <div class="">
+                                            <div class="">
+
                                             </div>
                                         </div>
                                     </div>
@@ -197,9 +186,9 @@
 
                         </div>
                         <div class="col-xl-3 col-lg-4 order-lg-1">
-                            <aside class="shop-sidebar">
-                                <div class="shop-widget mb--40">
-                                    <h3 class="widget-title mb--25">Category</h3>
+                            <aside class="shop-sidebar mt-5">
+                                <div class="shop-widget mb--40 mb-5">
+                                    <h3 class="widget-title mb--25 category">Category</h3>
                                     <ul class="widget-list category-list">
                                         <li class="text-decoration-none">
                                             <a href="{{ route('lelang.perhiasan') }}" class="text-decoration-none">
@@ -245,87 +234,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="shop-widget mb--40">
-                                    <h3 class="widget-title mb--30">Color</h3>
-                                    <div class="widget-color">
-                                        <a href="" class="red text-decoration-none">Red</a>
-                                        <a href="" class="pink text-decoration-none">Pink</a>
-                                        <a href="" class="black text-decoration-none">black</a>
-                                        <a href="" class="brown text-decoration-none">brown</a>
-                                        <a href="" class="blue text-decoration-none">blue</a>
-                                        <a href="" class="cholate text-decoration-none">cholate</a>
-                                        <a href="" class="copper text-decoration-none">copper</a>
-                                        <a href="" class="gray text-decoration-none">grey</a>
-                                    </div>
-                                </div>
-                                <div class="shop-widget mb--40">
-                                    <h3 class="widget-title mb--25">Price</h3>
-                                    <ul class="widget-list price-list">
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>Low - Medium</span>
-                                                <strong class="font-weight-medium">Rp.100.000-Rp.500.000</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>Medium - High</span>
-                                                <strong class="font-weight-medium">Rp.500.000-Rp.900.000</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>High - Avobe</span>
-                                                <strong class="font-weight-medium">Rp.1.000.000++</strong>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="shop-widget mb--40">
-                                    <h3 class="widget-title mb--25">Brand</h3>
-                                    <ul class="widget-list brand-list">
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>Walmart</span>
-                                                <strong class="color--red font-weight-medium">10</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>Yellow</span>
-                                                <strong class="color--red font-weight-medium">50</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>H &amp; M</span>
-                                                <strong class="color--red font-weight-medium">46</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="text-decoration-none">
-                                                <span>Black &amp; White</span>
-                                                <strong class="color--red font-weight-medium">46</strong>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="shop-widget">
-                                    <h3 class="widget-title mb--25">Tag</h3>
-                                    <div class="tagcloud">
-                                        <a href="" class="text-decoration-none">Blazer</a>
-                                        <a href="" class="text-decoration-none">Jacket</a>
-                                        <a href="" class="text-decoration-none">Polo Shirt</a>
-                                        <a href="" class="text-decoration-none">Cloth</a>
-                                        <a href="" class="text-decoration-none">T-Shirt</a>
-                                        <a href="" class="text-decoration-none">Shoes</a>
-                                        <a href="" class="text-decoration-none">Pant</a>
-                                        <a href="" class="text-decoration-none">Party Dress</a>
-                                        <a href="" class="text-decoration-none">Coktail Dress</a>
-                                        <a href="" class="text-decoration-none">Sweater</a>
-                                        <a href="" class="text-decoration-none">Jeans</a>
-                                    </div>
-                                </div>
+
                             </aside>
                         </div>
                     </div>

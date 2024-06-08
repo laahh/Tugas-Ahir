@@ -3,10 +3,12 @@
 use App\Models\bids;
 use App\Models\User;
 use App\Models\artikel;
+use App\Models\Transaction;
 use App\Models\BarangLelang;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\lelangController;
 use App\Http\Controllers\artikelController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BarangLelangController;
 use App\Http\Controllers\VerifikasiDataController;
 use App\Http\Controllers\ManajemenLelangController;
+use App\Http\Controllers\riwayatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,16 +90,27 @@ Route::get('/dashboard', function () {
         $query->where('user_id', $userId);
     })->get();
 
+
     // Setting the highestBid property for each item
     $userBids->map(function ($item) {
         $item->highestBid = $item->bids->first(); // This ensures every item has a highestBid property
         return $item;
     });
 
-    return view('landingpage.dashboard', compact('userBids', 'title'));
-})->middleware(['auth']);
+    $userTransactions = Transaction::where('user_id', $userId)
+        ->with('barangLelang') // Pastikan Anda memiliki relasi 'barangLelang' di model Transaction
+        ->latest()
+        ->take(1) // Mengambil satu transaksi terakhir, ganti dengan get() jika ingin lebih banyak
+        ->get();
+
+    return view('landingpage.dashboard', compact('userBids', 'title', 'userTransactions'));
+})->middleware(['auth', 'verified']);
 
 
+
+Route::get('/email/verify', function () {
+    return view('landingpage.verifikasiEmail');
+})->middleware('auth')->name('verification.notice');
 
 
 
@@ -128,6 +142,23 @@ route::get('/barang-detail', function () {
     $title = "Detail Barang";
     return view('landingpage.product-detail', compact('title'));
 });
+
+
+route::get('/dashboard-admin', function () {
+    $title = "Detail Barang";
+
+    // Menghitung jumlah user
+    $jumlahUser = User::count();
+
+    // Menghitung jumlah barang
+    $jumlahBarang = Transaction::count();
+
+    // Menghitung jumlah saldo dari transaksi yang telah dilakukan
+    $jumlahSaldo = Transaction::where('status', 'pending')->sum('amount');
+
+    return view('admin.pages.dashboard.index', compact('title', 'jumlahUser', 'jumlahBarang', 'jumlahSaldo'));
+});
+
 
 
 // Route::get('/email/verify', function () {
@@ -186,4 +217,28 @@ Route::post('/lelang/send-email/{id}', [ManajemenLelangController::class, 'sendW
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/pay/{barangId}', [PaymentController::class, 'createTransaction'])->name('pay')->middleware('auth');
+
+Route::post('/pay/{barangId}', [PaymentController::class, 'createPayment'])->name('pay')->middleware('auth');
+Route::post('/callbackpayment', [PaymentController::class, 'handleNotification'])->name('callbackpayment');
+
+route::get('/testing', function () {
+    return view('welcome');
+});
+
+
+// login admin
+
+// Route untuk menampilkan form login
+Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+
+// Route untuk memproses data login
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.post');
+// Route::middleware('auth')->group(function () {
+//     Route::get('admin/dashboard', function () {
+//         return view('admin.dashboard');
+//     })->name('admin.dashboard');
+// });
+
+Route::get('invoice/download/{transactionId}', [PaymentController::class, 'downloadInvoice'])->name('invoice.download');
+
+Route::resource('/riwayat-transaksi', riwayatController::class);

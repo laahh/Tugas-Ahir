@@ -30,13 +30,13 @@
             </div>
         </div>
         <ul class="menu-list">
-            <li><a class=" text-decoration-none" href="/">Home</a></li>
-            <li><a class=" text-decoration-none" href="/about">About Us</a></li>
-            <li><a class=" text-decoration-none" href="/how-works">How It Works</a></li>
-            <li><a class=" text-decoration-none" href="/lelang">Browse Product</a></li>
-            <li><a class=" text-decoration-none" href="/blog">News</a></li>
+            <li><a class=" text-decoration-none" href="/">Beranda</a></li>
+            <li><a class=" text-decoration-none" href="/about">Tentang Kami</a></li>
+            <li><a class=" text-decoration-none" href="/how-works">Cara Kerja</a></li>
+            <li><a class=" text-decoration-none" href="/lelang">Telusuri Produk</a></li>
+            <li><a class=" text-decoration-none" href="/blog">Berita</a></li>
             <li><a class=" text-decoration-none" href="/faq">FAQ</a></li>
-            <li><a class=" text-decoration-none" href="/chatify/103">Contact</a></li>
+            <li><a class=" text-decoration-none" href="/chatify/103">Kontak</a></li>
         </ul>
     </div>
     <div class="nav-right d-flex align-items-center">

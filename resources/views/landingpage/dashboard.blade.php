@@ -3,14 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
 
 
 
@@ -412,8 +416,17 @@
                                                 @endphp
 
                                                 @if($isWinner && !$item->is_paid)
-                                                <button id="pay-button" class="eg-btn action-btn green">Bayar
-                                                    Sekarang</button>
+
+                                                <form>
+                                                    @csrf
+                                                    <!-- CSRF token masih perlu untuk validasi di server -->
+                                                    <button type="button"
+                                                        onclick="requestPembayaran(this.dataset.barangId)"
+                                                        id="pay-button" data-barang-id="{{ $item->id }}"
+                                                        class="eg-btn action-btn green pay-button">Bayar
+                                                        Sekarang</button>
+                                                </form>
+
                                                 @else
                                                 <img alt="image" src="assets/images/icons/aiction-icon.svg" />
                                                 @endif
@@ -448,7 +461,7 @@
                             aria-labelledby="v-pills-purchase-tab">
                             <!-- table title-->
                             <div class="table-title-area">
-                                <h3>Order Bidding List</h3>
+                                <h3>Riwayat Transaksi</h3>
                                 <select placeholder="Filter Order History" class="select" options="orderListOptions"
                                     style="customStyle"></select>
                             </div>
@@ -457,26 +470,33 @@
                                 <table class="eg-table order-table table mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Image</th>
-                                            <th>Bidding ID</th>
-                                            <th>Bid Amount(USD)</th>
-                                            <th>Highest Bid</th>
+                                            <th>ID Transaksi</th>
+                                            <th>Gambar</th>
+                                            <th>Nama Barang</th>
+                                            <th>Harga</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        @foreach($userTransactions as $data)
+
+
                                         <tr>
-                                            <td data-label="Image"><img alt="image" src="assets/images/bg/order1.png"
-                                                    class="img-fluid" /></td>
-                                            <td data-label="Bidding ID">Bidding_HvO253gT</td>
-                                            <td data-label="Bid Amount(USD)">1222.8955</td>
-                                            <td data-label="Highest Bid">$1222.8955</td>
-                                            <td data-label="Status" class="text-green">Approved</td>
-                                            <td data-label="Action"><button class="eg-btn action-btn green"><img
-                                                        alt="image"
-                                                        src="assets/images/icons/aiction-icon.svg" /></button></td>
+                                            <td data-label="Bidding ID">TRX-00{{ $data->id }}</td>
+                                            <td data-label="Image"><img alt="image"
+                                                    src="{{ asset('storage/' . $data->barangLelang->gambar) }}"
+                                                    class="img-fluid" />
+                                            </td>
+                                            <td data-label="Bid Amount(USD)">{{ $data->barangLelang->nama_barang }}</td>
+                                            <td data-label="Highest Bid">Rp {{ number_format($data->amount) }}</td>
+                                            <td data-label="Status" class="text-green">Terbayar</td>
+                                            <td data-label="Action"><a href="{{ route('invoice.download', $data->id) }}"
+                                                    class="btn btn-success">Download Invoice</a>
+                                            </td>
                                         </tr>
+                                        @endforeach
                                         <!-- Additional rows omitted for brevity -->
                                     </tbody>
                                 </table>
@@ -516,80 +536,52 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
     @include('landingpage.components.footer')
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-
     @if(!auth()->user()->ktp_image || !auth()->user()->is_verified)
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    Swal.fire({
-        title: 'Verifikasi Diperlukan',
-        text: "Anda harus mengunggah KTP dan menunggu verifikasi sebelum mengakses Lelang. Pilih Menu Profile Kemudian lengkapi data dan KTP",
-        icon: 'warning',
-        confirmButtonText: 'Unggah Sekarang'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            
-        }
-    });
-});
+            Swal.fire({
+                title: 'Verifikasi Diperlukan',
+                text: "Anda harus mengunggah KTP dan menunggu verifikasi sebelum mengakses Lelang. Pilih Menu Profile Kemudian lengkapi data dan KTP",
+                icon: 'warning',
+                confirmButtonText: 'Unggah Sekarang'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                }
+            });
+        });
     </script>
     @endif
 
-
-    <script type="text/javascript">
-        document.getElementById('pay-button').onclick = function(){
-            // Lakukan request ke server untuk mendapatkan snap token
-            fetch('/pay/{{ $userBids->baranglelang->id }}', {
-                method: 'POST',
+    <script>
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        function requestPembayaran(barangId) {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            axios.post(`/pay/${barangId}`, {
+                _token: csrfToken // Menyertakan CSRF token di dalam body request
+            },{
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Pastikan CSRF token diikutsertakan untuk keamanan
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                snap.pay(data.snap_token, {
-                    // Opsi callback sesuai dengan kebutuhan
-                    onSuccess: function(result){
-                        /* Handle ketika pembayaran berhasil */
-                        alert('Pembayaran berhasil!');
-                    },
-                    onPending: function(result){
-                        /* Handle ketika pembayaran tertunda */
-                        alert('Pembayaran tertunda, silakan cek status pembayaran Anda.');
-                    },
-                    onError: function(result){
-                        /* Handle ketika pembayaran gagal */
-                        alert('Pembayaran gagal, silakan coba lagi.');
-                    },
-                    onClose: function(){
-                        /* Handle ketika pengguna menutup snap modal */
-                        alert('Anda menutup jendela pembayaran!');
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan, tidak dapat memproses pembayaran.');
+                    'X-CSRF-TOKEN': csrfToken, // Menyertakan CSRF token di dalam headers
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.data.error) {
+                    alert(response.data.error);
+                } else {
+                    window.snap.pay(response.data.snap_token);
+                }
+            }).catch(error => {
+                console.error('Axios error:', error);
+                alert('Error: ' + error.message);
             });
-        };
+        }
     </script>
 
 </body>
